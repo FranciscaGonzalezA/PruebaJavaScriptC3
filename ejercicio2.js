@@ -6,8 +6,13 @@ total verificando si corresponde o no el descuento.
 function descuentoPorProductos(valores) {
     let esMayor = false;
     let total = 0;
-    valores.forEach(x => {if(x>10000) esMayor = true});
-    valores.forEach(x => total = total + x);
+    //chequeamos si existe algun elemento mayor a 1000
+    for(var i=0; i<valores.length; i++) {
+        if(valores[i]>10000) {
+            esMayor = true;
+        }
+        total = total + valores[i];
+    }
     if(valores.length>3 && esMayor) {
         return total*0.95;
     } else {

@@ -5,13 +5,18 @@ corresponda o no descuento.
 */
 
 function descuento(dia, valores) {
+    //la compra parte en 0, antes de sumar los productos
     let compraTotal = 0;
+    //sumamos los valores de los preoductos, recorriendo con forEach
+    valores.forEach(num => compraTotal = compraTotal + num);
+    //chequeamos si es el dia de descuento
     if(dia.toLowerCase() == "martes" || dia.toLowerCase() == "jueves") {
-        valores.forEach(num => compraTotal += (num*0.8));
+        //retornamos el valor con el descuento
+        return compraTotal*0.8
     } else {
-        valores.forEach(x => compraTotal = compraTotal + x);
+        //retornamos el valor sin el descuento
+        return compraTotal;        
     }
-    return compraTotal;
 }
 
 console.log(descuento('jueVES', [1000,500,650,8000]))
